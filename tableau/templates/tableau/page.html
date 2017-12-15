@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html> 
+	<head> 
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="{% static 'tableau/style.css' %}" />
+		<title>HTML5  l'élément Canvas</title>
+	</head> 
+
+	
+	<body>
+		<div id="page">
+			<div id="canevas">
+				<canvas id="monCanvas" width="800" height="800"> 
+				Votre navigateur ne supporte pas l'Ã©lÃ©ment &lt;canvas&gt; . 
+				</canvas>
+			</div>
+			<div id="formulaires">
+				<form id='genRect' action="" method="get">
+					<fieldset>
+						<legend>Paramètres du tableau</legend>
+						{% csrf_token %}
+						{{ form.as_table }}
+						<input type='checkbox' label='progressive' id='progressive' checked />
+						<input type="button" onclick="genererTableau({{nbRect}}, {{nbRectWhite}})" value="Générer le tableau" />
+					</fieldset>
+                </form>				
+				
+				<form id='UX'>
+					<fieldset>
+						<legend>Appréciation</legend>
+						<div id="userData">
+							<label for="pseudo">Pseudo :</label>
+							<input type='text' name='pseudo' id="pseudo">
+							<label for="pseudo">Votre note :</label>
+							<input type='number' min='1' max='5' placeholder='1-5' name='note' id='note' required />
+						</div>
+						<center><input type='button' onclick='exportData()' value='Noter le tableau'></center>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+       <script>
+	   </script>
+       <script type="application/x-javascript" src="{% static 'tableau/generator.js' %}" >
+		</script>
+	</body> 
+</html>
