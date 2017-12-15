@@ -1,12 +1,12 @@
 //Données à exporter
 var tableau = {
-	"user": "",
-	"note": "",
-	"progressif": true,
+	"user": document.getElementById("pseudo").value,
+	"note": document.getElementById("note").value,
+	"progressif": document.getElementById("progressive").checked,
 	"black": [],
 "white": []};
 
-function genererTableau(nbRect, nbRectWhite){
+function genererTableau(){
 	// Initialisation du canevas
 	var canvas = document.getElementById("monCanvas"); 
 	var context = canvas.getContext("2d");
@@ -34,6 +34,12 @@ function genererTableau(nbRect, nbRectWhite){
 	var progressif = document.getElementById("progressive").checked;
 
 	// AurÃ©lie Nemours 
+
+
+
+	// si on veut des rectangles blancs, nRectWhite > 0
+	var nbRect = document.getElementById("nbRectInp").value;
+	var nbRectWhite = document.getElementById("nbRectWhiteInp").value;
 
 	var indfond = 0;
 	var couleurs = new Array("","");
@@ -285,12 +291,12 @@ function genererTableau(nbRect, nbRectWhite){
 	tableau.progressif = progressif;
 	tableau.black = rectangles;
 	tableau.white = rectanglesWhite;
-	return true;
+	return false;
 }
 
 function exportData() {
-	tableau.user = document.getElementById("pseudo").value;
-	tableau.note = document.getElementById("note").value;
+	console.log(tableau);
+	console.log(tableau.black[1]);
 	var tableauJSON = JSON.stringify(tableau);
 	localStorage.setItem("data", tableauJSON);
 	alert(tableauJSON);

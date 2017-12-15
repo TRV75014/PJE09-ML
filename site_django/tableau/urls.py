@@ -9,5 +9,5 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^tableau$', views.tableau),
+    url(r'^tableau/$', views.home, name='home'),
 ]
