@@ -2,7 +2,6 @@
 var tableau = {
 	"user": document.getElementById("pseudo").value,
 	"note": document.getElementById("note").value,
-	"progressif": document.getElementById("progressive").checked,
 	"black": [],
 "white": []};
 
@@ -31,15 +30,13 @@ function genererTableau(){
 	// contraintes de voisinage diminuant progressivement de init a min si (progressif=true)
 	var deltaxinit = myWidth*6/80;
 	var deltayinit = myHeight*6/80;
-	var progressif = document.getElementById("progressive").checked;
 
 	// AurÃ©lie Nemours 
 
 
 
 	// si on veut des rectangles blancs, nRectWhite > 0
-	var nbRect = document.getElementById("nbRectInp").value;
-	var nbRectWhite = document.getElementById("nbRectWhiteInp").value;
+	
 
 	var indfond = 0;
 	var couleurs = new Array("","");

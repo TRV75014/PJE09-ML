@@ -1,8 +1,5 @@
 //Données à exporter
 var tableau = {
-	"user": "",
-	"note": "",
-	"progressif": true,
 	"black": [],
 "white": []};
 
@@ -31,7 +28,6 @@ function genererTableau(nbRect, nbRectWhite){
 	// contraintes de voisinage diminuant progressivement de init a min si (progressif=true)
 	var deltaxinit = myWidth*6/80;
 	var deltayinit = myHeight*6/80;
-	var progressif = document.getElementById("progressive").checked;
 
 	// AurÃ©lie Nemours 
 
@@ -285,13 +281,16 @@ function genererTableau(nbRect, nbRectWhite){
 	tableau.progressif = progressif;
 	tableau.black = rectangles;
 	tableau.white = rectanglesWhite;
-	return true;
+	var tableauJSON = JSON.stringify(tableau)
+	$.getJSON
+	return tableauJSON;
 }
 
-function exportData() {
-	tableau.user = document.getElementById("pseudo").value;
-	tableau.note = document.getElementById("note").value;
-	var tableauJSON = JSON.stringify(tableau);
-	localStorage.setItem("data", tableauJSON);
-	alert(tableauJSON);
-}
+genererTableau(nbRect, nbRectWhite);
+
+
+var xhr = new XMLHttpRequest();
+var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+xhr.open('POST', '/tableau/tableau/');
+xhr.setRequestHeader("X-CSRFToken", csrftoken);
+xhr.send(JSON.stringify(tableau));

@@ -5,7 +5,7 @@
 	<head> 
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="{% static 'tableau/style.css' %}" />
-		<title>HTML5  l'élément Canvas</title>
+		<title>PJE09 - SYSICO</title>
 	</head> 
 
 	
@@ -17,33 +17,35 @@
 				</canvas>
 			</div>
 			<div id="formulaires">
-				<form id='genRect' action="" method="get">
+				<form id='genRect' method="get">
 					<fieldset>
 						<legend>Paramètres du tableau</legend>
-						{% csrf_token %}
-						{{ form.as_table }}
-						<input type='checkbox' label='progressive' id='progressive' checked />
-						<input type="button" onclick="genererTableau({{nbRect}}, {{nbRectWhite}})" value="Générer le tableau" />
+							{% csrf_token %}
+							{{ form.as_table }}
+						<center><input type="submit" value="Générer le tableau" /></center>
 					</fieldset>
                 </form>				
 				
-				<form id='UX'>
+				<form id='markForm' method="post">
 					<fieldset>
 						<legend>Appréciation</legend>
 						<div id="userData">
-							<label for="pseudo">Pseudo :</label>
-							<input type='text' name='pseudo' id="pseudo">
-							<label for="pseudo">Votre note :</label>
-							<input type='number' min='1' max='5' placeholder='1-5' name='note' id='note' required />
+							{% csrf_token %}
+							{{ notes.as_table }}
 						</div>
-						<center><input type='button' onclick='exportData()' value='Noter le tableau'></center>
+						<center><input type='submit' value='Noter le tableau'></center>
 					</fieldset>
 				</form>
 			</div>
 		</div>
+		
        <script>
+			var nbRect = {{nbRect}};
+			var nbRectWhite = {{nbRectWhite}};
+			var progressif = {{progressif}}
 	   </script>
-       <script type="application/x-javascript" src="{% static 'tableau/generator.js' %}" >
-		</script>
+	   <script src="{% static 'tableau/jquery-3.2.1.js' %}"></script>
+       <script type="application/x-javascript" src="{% static 'tableau/generator.js' %}"></script>
+
 	</body> 
 </html>
