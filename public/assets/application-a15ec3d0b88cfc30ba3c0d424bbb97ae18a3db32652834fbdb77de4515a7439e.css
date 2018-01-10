@@ -1,0 +1,197 @@
+/* line 4, /home/aymeric/Documents/PJE/website-2.0/app/assets/stylesheets/paintings.scss */
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: white;
+}
+
+/* line 11, /home/aymeric/Documents/PJE/website-2.0/app/assets/stylesheets/paintings.scss */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  justify-content: space-between;
+}
+/* line 5, /home/aymeric/Documents/PJE/website-2.0/app/assets/stylesheets/parameters.scss */
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+/* line 11, /home/aymeric/Documents/PJE/website-2.0/app/assets/stylesheets/parameters.scss */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 400px;
+}
+/* line 4, /home/aymeric/Documents/PJE/website-2.0/app/assets/stylesheets/sessions.scss */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* line 10, /home/aymeric/Documents/PJE/website-2.0/app/assets/stylesheets/sessions.scss */
+input[type=text],
+input[type=email],
+input[type=password] {
+  color: #666666;
+  width: 100%;
+  border: 1px solid #E6E6E6;
+  border-radius: 0px;
+  height: 60px;
+  margin: 6px auto;
+  text-indent: 10px;
+  text-align: center;
+}
+
+/* line 23, /home/aymeric/Documents/PJE/website-2.0/app/assets/stylesheets/sessions.scss */
+.btn-submit {
+  color: #FFFFFF;
+  font-size: 18px;
+  text-transform: uppercase;
+  background: #c91717;
+  padding: 10px 20px;
+  border: 0;
+  margin-top: 6px;
+}
+/* line 4, /home/aymeric/Documents/PJE/website-2.0/app/assets/stylesheets/users.scss */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* line 10, /home/aymeric/Documents/PJE/website-2.0/app/assets/stylesheets/users.scss */
+input[type=text],
+input[type=email],
+input[type=password] {
+  color: #666666;
+  width: 100%;
+  border: 1px solid #E6E6E6;
+  border-radius: 0px;
+  height: 60px;
+  margin: 6px auto;
+  text-indent: 10px;
+  text-align: center;
+}
+
+/* line 23, /home/aymeric/Documents/PJE/website-2.0/app/assets/stylesheets/users.scss */
+.btn-submit {
+  color: #FFFFFF;
+  font-size: 18px;
+  text-transform: uppercase;
+  background: #c91717;
+  padding: 10px 20px;
+  border: 0;
+  margin-top: 6px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+ .link {
+   color: white;
+ }
+
+ /* Body and header */
+ body {
+ 	background-color: #FAEDB7;
+ }
+
+ header {
+  position: fixed;
+  margin: 0;
+  top: 0;
+  left: 0;
+ 	width: 100%;
+  background-color: grey;
+ }
+
+ .header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: white
+ }
+
+#greetings {
+  float: right;
+}
+
+
+#generate{
+  text-align:center;
+  margin: 0 auto 10px;
+  padding: 20px 0 10px 0;
+  font-size: 16px;
+  float: right;
+}
+/*
+  canvas
+  */
+#monCanvas {
+  float: left;
+	background-color:white;
+  background-image: url(https://img15.hostingpics.net/pics/854793Nemoursvuoto3.jpg);
+}
+
+
+/*
+  RESPONSIVE
+  */
+@media screen and (max-width: 992px) {
+  .img-container img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .pull-right {
+    background-color: #f1f2f2;
+    position: relative;
+    margin: 0;
+    width: 100%;
+  }
+
+  .pull-right ul {
+    margin: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+    -webkit-padding-start: 0;
+  }
+
+  .pull-right ul li {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+    width: 50%;
+  }
+
+  .pull-right ul li a {
+    display: block;
+    width: 100%;
+  }
+
+  .img-container {
+    height: 200px;
+  }
+}
