@@ -7,6 +7,7 @@ class ParametersController < ApplicationController
     @parameter = Parameter.new(parameters_params) #Generate a new User instance using parameters collected from the form
     if @parameter.save
       session[:parameter_id] = @parameter.id
+      @parameter.users_id = session[:user_id]
       redirect_to '/generate'
     else
       render 'home'
@@ -15,6 +16,7 @@ class ParametersController < ApplicationController
 
   def update
     @parameter = Parameter.new(parameters_params) #Generate a new User instance using parameters collected from the form
+    @parameter.users_id = session[:user_id]
     if @parameter.save
       session[:parameter_id] = @parameter.id
       redirect_to '/generate'
