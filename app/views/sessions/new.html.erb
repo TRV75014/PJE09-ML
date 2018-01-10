@@ -1,0 +1,29 @@
+<header>
+  <div id="header">
+    <div class="signin">
+      <%= link_to "Sign Up", "signin", class:"link" %>
+    </div>
+    ||
+    <div class="login">
+      <%= link_to "Log In", "login", class:"link" %>
+    </div>
+  </div>
+</header>
+
+<div class="login">
+	<div class="container">
+		<div class="form">
+      <center>
+        <h1>Log in</h1>
+        <%= form_for(:session, url: login_path) do |f| %>
+          <%= f.text_field :username, :placeholder => "Username" %><br />
+          <%= f.password_field :password, :placeholder => "Password" %><br />
+          <%= f.submit "Log in", class: "btn-submit" %><br />
+        <% end %>
+      </center>
+      <p>
+        Don't have an account? Click here to <%= link_to "sign up", login_path %>!
+      </p>
+    </div>
+	</div>
+</div>

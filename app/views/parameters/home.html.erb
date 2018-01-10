@@ -1,0 +1,45 @@
+<header>
+  <div id="header">
+    <%= link_to "Log Out", "logout", :method => 'delete', class:"link"%>
+  </div>
+</header>
+
+<body>
+  <div id="canevas">
+    <canvas id="monCanvas" width="800" height="800">
+    Votre navigateur ne supporte pas l'Ã©lÃ©ment &lt;canvas&gt; .
+    </canvas>
+  </div>
+
+  <div id="container">
+    <div class="greetings">
+      <center>
+        <h2>Hello <%= session[:username] %>!</h2>
+        <p>You have already rated <%= Painting.count(:joins => "LEFT JOIN parameters.users_id = session[:user_id]") %> paintings!</p>
+      </center>
+    </div>
+    <div class="form">
+      <center>
+      <div class="generate">
+        <h1>Painting Properties</h1>
+        <%= form_for @parameter do |p|%>
+          <p>
+            <%= p.label "Number of Blacks" %>
+            <%= p.number_field :nbRectBlack, in: 1..10, step: 1 %>
+          </p>
+          <p>
+            <%= p.label "Number of Whites" %>
+            <%= p.number_field :nbRectWhite, in: 1..10, step: 1 %>
+          </p>
+          <p>
+            <%= p.label "Progressive option" %>
+            <%= p.check_box :progressif %></p>
+          <p>
+            <%= p.submit "Generate", class: "btn-submit" %>
+          </p>
+        <% end %>
+      </div>
+      </center>
+    </div>
+  </div>
+</body>

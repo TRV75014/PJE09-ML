@@ -1,0 +1,16 @@
+// Place all the styles related to the Paintings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  justify-content: space-between;
+}
