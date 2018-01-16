@@ -1,0 +1,44 @@
+<header>
+  <div id="header">
+    <div class="menu">
+      <%= link_to "New Painting", '/home', :method => 'get', class: 'link' %>
+    </div>
+    <div class="account">
+      <%= link_to "Log Out", "logout", :method => 'delete', class: "link" %>
+    </div>
+  </div>
+</header>
+
+<body>
+  <div id="canevas">
+    <canvas id="monCanvas" width="800" height="800">
+    Votre navigateur ne supporte pas l'Ã©lÃ©ment &lt;canvas&gt; .
+    </canvas>
+  </div>
+
+  <div id="container">
+    <div class="greetings">
+      <center>
+        <h2>Hello <%= session[:username] %>!</h2>
+        <p>You have already rated <%= Painting.count(:joins => "LEFT JOIN parameters.users_id = session[:user_id]") %> paintings!</p>
+          <% if params[:id].to_i >1 %>
+          <% @new_id = params[:id].to_i-1%>
+          <%= link_to "Previous", :id => @new_id%>
+        <%end%>
+        <p>Painting <%= params[:id] %>/<%= Painting.count(:joins => "LEFT JOIN parameters.users_id = session[:user_id]") %></p>
+        <% if params[:id].to_i < Painting.count(:joins => "LEFT JOIN parameters.users_id = session[:user_id]") %>
+          <% @new_id = params[:id].to_i+1%>
+          <%= link_to "Next", :id => @new_id%>
+        <%end%>
+      </center>
+    </div>
+
+    <script>
+      var rectangles = <%= @RectBlack %>;
+      var rectanglesWhite = <%= @RectWhite %>;
+      var nbRect = <%= @nbBlacks %>;
+      var nbRectWhite = <%= @nbWhites %>;
+      getPainting(rectangles, rectanglesWhite);
+    </script>
+  </div>
+</body>

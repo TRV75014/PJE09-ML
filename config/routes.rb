@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # Routes for User's controller (User's management)
   get 'signin' => 'users#new' # Link '/signin' to User's "new" actions
+  post 'signin' => 'users#create'
+#  get 'account' => 'users#parameters'
+#  post 'account' => 'users#update'
+#  delete 'account' => 'users#delete'
   resources :users # Create the 7 actions for :users (maps HTTP verbs to controller actions automatically)
 
   # Routes for Session's controller (controll active user's sessions)
@@ -11,12 +15,17 @@ Rails.application.routes.draw do
   # Routes for PaintingParametersController
   get 'home' => 'parameters#home' # Link '/home' to Parameter's "new" actions
   post 'home' => 'parameters#create'# Link '/home' post method to Parameter's "create" actions
-  resources :parameters# Create the 7 actions for :parameters (maps HTTP verbs to controller actions automatically)
+  resources :parameters # Create the 7 actions for :parameters (maps HTTP verbs to controller actions automatically)
 
   # Routes for Painting's controller
   get 'generate' => 'paintings#new' # Link '/generate' to Painting's "new" actions
-  post 'generate' => 'painting#create' # Link '/generate' post method to Painting's "create" actions
+  post 'generate' => 'paintings#create' # Link '/generate' post method to Painting's "create" actions
+  get 'history/:id' => 'paintings#index'
   resources :paintings # Create the 7 actions for :paintings (maps HTTP verbs to controller actions automatically)
+
+#  post 'bookmarks/create' => 'bookmarks#create'
+#  get 'bookmarks/index' => 'bookmarks#index'
+#  delete 'bookmarks/delete' => 'bookmarks#delete'
 
   root "sessions#new" # Set the root to get to Session's "new" actions
 

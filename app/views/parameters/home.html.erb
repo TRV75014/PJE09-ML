@@ -1,6 +1,11 @@
 <header>
   <div id="header">
-    <%= link_to "Log Out", "logout", :method => 'delete', class:"link"%>
+    <div class="menu">
+      <%= link_to "History", "/history/1", :method => 'get', class:"link"%>
+    </div>
+    <div class="account">
+      <%= link_to "Log Out", "logout", :method => 'delete', class:"link"%>
+    </div>
   </div>
 </header>
 

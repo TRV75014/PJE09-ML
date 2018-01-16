@@ -19,6 +19,17 @@ class PaintingsController < ApplicationController
     end
   end
 
+  def index
+    @painting = Painting.find_by id: params[:id]
+    @mark = @painting.mark
+    @JsonData = @painting.JsonData
+    @hash = JSON.parse @JsonData
+    @RectBlack = @hash['RectBlack']
+    @RectWhite = @hash['RectWhite']
+    @nbBlacks = @RectBlack.size
+    @nbWhites = @RectWhite.size
+  end
+
   private
   # Method to safely collect data from the user's parameters form and store them in the database
   def painting_params

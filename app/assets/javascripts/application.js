@@ -302,3 +302,114 @@ function genererTableau(){
 	};
 	return JSON.stringify(tableauJSON)
 }
+
+function getPainting(rectangles, rectanglesWhite)
+{
+	// Initialisation du canevas
+	var canvas = document.getElementById("monCanvas");
+	var context = canvas.getContext("2d");
+	context.clearRect(0, 0, canvas.width, canvas.height);
+
+	// taille Canevas
+	var myCanvasWidth = 800;
+	var myCanvasHeight = 800;
+
+	var myWidth = 577;
+	var myHeight = 577;
+
+	var marge_param = 6 ;
+
+	var marge = myWidth*marge_param/80;
+	var xUpperLeft = (myCanvasWidth-myWidth)/2;
+	var yUpperLeft = (myCanvasHeight-myHeight)/2;
+	var widthmin = myWidth*5/80;
+	var heightmin = myHeight*5/80;
+	var deltaxmin = myWidth*3/80;
+	var deltaymin = myHeight*3/80;
+	// contraintes de voisinage diminuant progressivement de init a min si (progressif=true)
+	var deltaxinit = myWidth*6/80;
+	var deltayinit = myHeight*6/80;
+
+
+	// AurÃ©lie Nemours
+
+
+
+	// si on veut des rectangles blancs, nRectWhite > 0
+
+	var indfond = 0;
+	var couleurs = new Array("","");
+
+	couleurs[indfond] = "white";
+	couleurs[1-indfond]= "black";
+
+
+
+
+	// on initialise l'array(ligne,colonne) avec fond
+	var myLine = new Array() ;
+	for (i = 0; i < myWidth; i++)
+	{
+		myLine[i] = indfond;
+	}
+
+	// remplir une ligne avec le code couleur indcoul
+	function fillLine(ligne,lmax,indcoul)
+	 {
+		 for (c = 0; c < lmax; c++)
+		 {
+			setTimeout("ligne[c]=indcoul", 5000);
+		 }
+	 }
+
+	// remplir toutes les lignes
+		function fillRect(rectangle, lmax, cmax,indcoul)
+	 {
+		 for (l = 0; l < cmax; l++)
+		 {
+			setTimeout("fillLine(rectangle[l],lmax,indcoul)", 5000);
+		 }
+	 }
+
+
+	// dessiner un rectangle
+	function rectangle3(x,y,w,h,couleur)
+	{
+		var canvas = document.getElementById("monCanvas");
+		var context = canvas.getContext("2d");
+		context.fillStyle=couleur;
+		context.fillRect(x,y,w,h);
+	}
+
+
+	for (i = 0; i < nbRect; i++)
+	{
+		xmin = rectangles[i][0]
+		xmax = rectangles[i][2]
+
+		ymin = rectangles[i][1]
+		ymax = rectangles[i][3]
+
+		w1 = xmax-xmin
+		h1 = ymax - ymin
+
+		rectangle3(xmin,ymin,w1,h1,"black");
+	}
+
+
+	// les rectangles blancs
+	for (i = 0; i < nbRectWhite; i++)
+	{
+		xmin = rectanglesWhite[i][0]
+		xmax = rectanglesWhite[i][2]
+
+		ymin = rectanglesWhite[i][1]
+		ymax = rectanglesWhite[i][3]
+
+		w1 = xmax-xmin
+		h1 = ymax - ymin
+
+		rectangle3(xmin,ymin,w1,h1,"white");
+
+	}
+}
